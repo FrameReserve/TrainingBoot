@@ -8,10 +8,12 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 @SpringBootApplication
 public class SpringBootServlet extends SpringBootServletInitializer {
 
+	// jar启动
 	public static void main(String[] args) {
         SpringApplication.run(SpringBootServlet.class, args);
     }
 
+	// tomcat war启动
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(SpringBootServlet.class);

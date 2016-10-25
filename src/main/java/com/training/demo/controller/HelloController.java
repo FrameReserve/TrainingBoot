@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.training.core.controller.BaseController;
 import com.training.demo.dto.DemoDto;
 
 /**
@@ -22,7 +23,7 @@ import com.training.demo.dto.DemoDto;
  */
 @RestController
 @RequestMapping(value="/demo") 
-public class HelloController {
+public class HelloController extends BaseController {
 
     @ApiOperation(value="获取用户列表", notes="")
     @RequestMapping(value={""}, method=RequestMethod.GET)
