@@ -20,7 +20,6 @@ import com.training.core.exception.RuntimeFunctionException;
 import com.training.core.exception.RuntimeOtherException;
 import com.training.core.exception.RuntimeServiceException;
 import com.training.core.exception.RuntimeWebException;
-
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class ResultDataDto {
 
