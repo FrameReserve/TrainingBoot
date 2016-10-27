@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.training.sysmanager.mapper.AclResourcesMapper">
+
+    <resultMap type="AclResources" id="AclResourcesResultMap">
+        <id column="id" property="id"/>
+        <result column="url" property="url"/>
+        <result column="type" property="type"/>
+        <result column="name" property="name"/>
+        <result column="pronoun" property="pronoun"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="authority" property="authority"/>
+        <result column="request_type_id" property="requestTypeId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_modify_time" property="lastModifyTime"/>
+    </resultMap>
+
+
+    <select id="selectAclResourcesByResourceIds" resultMap="AclResourcesResultMap">
+    SELECT resources.*,CONCAT('auth_',CONCAT((SELECT pronoun FROM tbl_sysmgr_aclresources WHERE id = resources.parent_id),'_'),requesttype.pronoun) AS authority FROM tbl_sysmgr_aclresources AS resources LEFT JOIN tbl_sysmgr_aclrequesttype AS requesttype ON resources.request_type_id = requesttype.id WHERE resources.type = 'R' AND resources.id IN
+        <foreach collection="resourceIdsArray" index="index" item="resourceId" open="(" separator="," close=")">
+            #{resourceId}
+        </foreach>
+    </select>
+
+</mapper>
