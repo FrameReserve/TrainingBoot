@@ -20,5 +20,13 @@ spring:
 #        testOnReturn: false
 #        poolPreparedStatements: true
 #        maxOpenPreparedStatements: 20
-
-
+    redis:
+        database: 0
+        host: 192.168.2.66
+        password: 123
+        port: 6379
+        pool:
+            max-idle: 8
+            min-idle: 0
+            max-active: 10
+            max-wait: -1
