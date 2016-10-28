@@ -46,5 +46,26 @@ public class BaseRedisController<T extends BaseEntity> extends BaseController<T>
 		return ResultDataDto.addAddSuccess();
 	}
 	
+	/**
+	 * 更新实体
+	 */
+	@ApiOperation(value="更新实体", notes="updateEntity")
+	@ApiImplicitParam(name = "entity", value = "实体Json", required = true, dataType = "application/json")
+    @RequestMapping(value = "/updateEntity", method = RequestMethod.PUT, consumes = "application/json")
+	public @ResponseBody ResultDataDto updateEntity(@RequestBody final T entity) {
+		baseDao.updateEntity(entity);
+		return ResultDataDto.addUpdateSuccess();
+	}
+	
+	/**
+	 * 根据Id删除实体
+	 */
+	@ApiOperation(value="根据Id删除实体", notes="deleteEntityById")
+	@ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer")
+	@RequestMapping(value = "/deleteEntityById/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody ResultDataDto deleteEntityById(@PathVariable(value = "id") final Integer id) {
+		baseDao.deleteEntityById(entityClass, id);
+		return ResultDataDto.addDeleteSuccess();
+	}
 	
 }
