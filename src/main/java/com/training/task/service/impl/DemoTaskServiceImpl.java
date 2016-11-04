@@ -5,11 +5,11 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.training.task.service.DemoTaskService;
 
-@Component
+@Service
 public class DemoTaskServiceImpl implements DemoTaskService {
 
 	private Logger logger = Logger.getLogger(DemoTaskServiceImpl.class);

@@ -1,5 +1,8 @@
 package com.training.redis.controller;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -27,8 +30,9 @@ public class DemoRedisController extends BaseRedisController<DemoRedis> {
 	private DemoRedisService demoRedisService;
 	
 	/**
-	 * 根据Id查询实体
+	 * 查询所有Session
 	 */
+	@ApiOperation(value="查询所有Session", notes="getEntityById")
     @RequestMapping(value = "/getSesstion", method = RequestMethod.GET)
 	public @ResponseBody ResultDataDto getEntityById(HttpSession httpSession) {
     	
@@ -43,8 +47,9 @@ public class DemoRedisController extends BaseRedisController<DemoRedis> {
 	}
     
     /**
-	 * 新增实体
+	 * 新增测试Session
 	 */
+	@ApiOperation(value="新增测试Session", notes="getEntityById")
     @RequestMapping(value = "/addSesstion", method = RequestMethod.GET)
 	public @ResponseBody ResultDataDto addEntity(HttpSession httpSession) {
     	DemoSessionDto session = new DemoSessionDto();
