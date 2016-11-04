@@ -8,6 +8,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +52,7 @@ public class BaseCrudController<T extends BaseEntity> extends BaseController<T> 
 	@ApiOperation(value="新增实体", notes="addEntity")
 	@ApiImplicitParam(name = "entity", value = "实体Json", required = true, dataType = "application/json")
     @RequestMapping(value = "/addEntity", method = RequestMethod.POST, consumes = "application/json")
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
 	public @ResponseBody ResultDataDto addEntity(@RequestBody final T entity) {
 		baseDao.addEntity(entity);
 		return ResultDataDto.addAddSuccess();
@@ -60,6 +64,7 @@ public class BaseCrudController<T extends BaseEntity> extends BaseController<T> 
 	@ApiOperation(value="更新实体", notes="updateEntity")
 	@ApiImplicitParam(name = "entity", value = "实体Json", required = true, dataType = "application/json")
     @RequestMapping(value = "/updateEntity", method = RequestMethod.PUT, consumes = "application/json")
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
 	public @ResponseBody ResultDataDto updateEntity(@RequestBody final T entity) {
 		baseDao.updateEntity(entity);
 		return ResultDataDto.addUpdateSuccess();
@@ -71,6 +76,7 @@ public class BaseCrudController<T extends BaseEntity> extends BaseController<T> 
 	@ApiOperation(value="根据Id删除实体", notes="deleteEntityById")
 	@ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer")
 	@RequestMapping(value = "/deleteEntityById/{id}", method = RequestMethod.DELETE)
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
 	public @ResponseBody ResultDataDto deleteEntityById(@PathVariable(value = "id") final Integer id) {
 		baseDao.deleteEntityById(entityClass, id);
 		return ResultDataDto.addDeleteSuccess();
