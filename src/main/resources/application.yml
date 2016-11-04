@@ -30,3 +30,9 @@ spring:
             min-idle: 0
             max-active: 10
             max-wait: -1
+
+            
+#指定log的配置文件，以及记录Spring Boot的log级别  
+logging:
+    config: classpath:logbak.xml
+            
