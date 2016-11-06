@@ -30,6 +30,16 @@ spring:
             min-idle: 0
             max-active: 10
             max-wait: -1
+            
+    mail:
+        host: smtp.163.com
+        username: 286352250@163.com
+        password: 用户密码
+        properties:
+            mail: 
+                smtp:
+                    auth: true
+                    timeout: 25000
 
             
 #指定log的配置文件，以及记录Spring Boot的log级别  
