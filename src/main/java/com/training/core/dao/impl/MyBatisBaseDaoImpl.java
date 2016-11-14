@@ -1,29 +1,33 @@
 package com.training.core.dao.impl;
 
-import com.training.core.annotation.MapperClass;
-import com.training.core.helper.MyBatisHelper;
+import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.apache.ibatis.session.RowBounds;
-import org.springframework.core.annotation.Order;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
-
-import com.training.core.dao.BaseDao;
-import com.training.core.dto.FlexiPageDto;
-import com.training.core.entity.BaseEntity;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
-import javax.annotation.Resource;
-
-import java.util.List;
+import com.training.core.annotation.MapperClass;
+import com.training.core.dao.BaseDao;
+import com.training.core.dto.FlexiPageDto;
+import com.training.core.entity.BaseEntity;
 
 @Repository("myBatisBaseDao")
 @SuppressWarnings("unchecked")
 public class MyBatisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 	
 	@Resource
-	private MyBatisHelper myBatisHelper;
+    @Qualifier("sessionFactory")
+    private SqlSessionFactory sqlSessionFactory;
+	
+	private SqlSession sqlSession;
 	
 	@SuppressWarnings("rawtypes")
 	public <M extends Mapper<T>> M getMapper(Class cls){
@@ -31,7 +35,7 @@ public class MyBatisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 		if(null == mapperClass){
 			throw new RuntimeException("没有注解MapperClass");
 		}
-		 	return (M)myBatisHelper.getMapper(mapperClass.value());
+		 	return (M) getSqlSession().getMapper(mapperClass.value());
 	}
 
 	@Override
@@ -75,5 +79,14 @@ public class MyBatisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 	public int findRowCount(Example example) {
 		return this.getMapper(example.getEntityClass()).selectCountByExample(example);
 	}
+	
+	public SqlSession getSqlSession(){
+        if (null == sqlSession){
+        	synchronized (MyBatisBaseDaoImpl.class) {
+        		this.sqlSession = new SqlSessionTemplate(sqlSessionFactory);
+			}
+        }
+        return this.sqlSession;
+    }
 	
 }

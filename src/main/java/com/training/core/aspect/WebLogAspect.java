@@ -16,11 +16,6 @@ import java.util.Arrays;
 
 /**
  * Web层日志切面
- *
- * @author 程序猿DD
- * @version 1.0.0
- * @date 16/5/17 上午10:42.
- * @blog http://blog.didispace.com
  */
 @Aspect
 @Order(5)
@@ -31,7 +26,7 @@ public class WebLogAspect {
 
     ThreadLocal<Long> startTime = new ThreadLocal<>();
 
-    @Pointcut("execution(public * com.didispace.web..*.*(..))")
+    @Pointcut("execution(public * com.training..*.*Controller(..))")
     public void webLog(){}
 
     @Before("webLog()")

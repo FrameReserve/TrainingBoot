@@ -21,9 +21,9 @@ public class DemoEmailController extends BaseController {
 	private EmailService emailService;
 	
 	/**
-	 * 测试异步方法调用顺序
+	 * 测试邮件发送
 	 */
-	@ApiOperation(value="测试异步方法调用顺序", notes="getEntityById")
+	@ApiOperation(value="测试邮件发送", notes="getEntityById")
     @RequestMapping(value = "/getTestDemoEmail", method = RequestMethod.GET)
 	public @ResponseBody ResultDataDto getEntityById() throws Exception {
 		String sendTo = "1265400024@qq.com";
