@@ -40,6 +40,11 @@ spring:
                 smtp:
                     auth: true
                     timeout: 25000
+    rabbitmq:
+        host: 192.168.2.71
+        port: 5672
+        username: hxb
+        password: hxb
 
             
 #指定log的配置文件，以及记录Spring Boot的log级别  
