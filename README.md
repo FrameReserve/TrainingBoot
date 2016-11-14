@@ -1,4 +1,13 @@
-# TrainingBoot
+# Training Spring Boot
+本项目为 Spring Boot 教程案例。
+
+作者博客：
+http://blog.csdn.net/a286352250
+
+Spring Boot系列博文：http://blog.csdn.net/a286352250/article/category/6519075
+
+
+# Spring Boot 基础增删改查，邮件，Redis日志整合。
 
 Spring Boot （一） 基础搭建、兼容jar启动及war tomcat启动、集成Swagger2 API。
 http://blog.csdn.net/a286352250/article/details/52870220
@@ -35,4 +44,10 @@ http://blog.csdn.net/a286352250/article/details/53157940
 
 Spring Boot （十二）集成spring-boot-starter-mail发送邮件
 http://blog.csdn.net/a286352250/article/details/53157963
+
+
+# Spring Boot 消息队列整合
+
+Spring Boot （十三）集成RabbitMQ
+http://blog.csdn.net/a286352250/article/details/53158667
 
