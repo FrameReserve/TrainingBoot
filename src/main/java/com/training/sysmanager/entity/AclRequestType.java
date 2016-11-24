@@ -37,4 +37,19 @@ public class AclRequestType extends BaseEntity {
     @Column
     private String pronoun;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPronoun() {
+        return pronoun;
+    }
+
+    public void setPronoun(String pronoun) {
+        this.pronoun = pronoun;
+    }
 }
