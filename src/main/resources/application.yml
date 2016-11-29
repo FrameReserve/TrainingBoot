@@ -25,7 +25,7 @@ spring:
       read:
         url: jdbc:mysql://192.168.2.64:3306/training
         username: root
-        password: 123
+        password: foobared
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
