@@ -1,11 +1,11 @@
 # Training Spring Boot
 本项目为 Spring Boot 教程案例。
-
+ <br />
 作者博客：
 http://blog.csdn.net/a286352250
 
 Spring Boot系列博文：http://blog.csdn.net/a286352250/article/category/6519075
-
+ <br />
 
 # Spring Boot 基础增删改查，邮件，Redis日志整合。
 
@@ -44,10 +44,16 @@ http://blog.csdn.net/a286352250/article/details/53157940
 
 Spring Boot （十二）集成spring-boot-starter-mail发送邮件
 http://blog.csdn.net/a286352250/article/details/53157963
-
+ <br />
 
 # Spring Boot 消息队列整合
 
 Spring Boot （十三）集成RabbitMQ
 http://blog.csdn.net/a286352250/article/details/53158667
+ <br />
 
+# Spring Boot Dubbo 整合
+Spring Boot （十四）集成Dubbo
+http://blog.csdn.net/a286352250/article/details/53411110
+
+ <br /> <br />
